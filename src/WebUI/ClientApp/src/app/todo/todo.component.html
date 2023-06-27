@@ -38,7 +38,8 @@
         </button>
       </div>
       <ul id="todo-items" class="list-group mb-2">
-        <li class="list-group-item" *ngFor="let item of selectedList.items; index as i">
+        <li class="list-group-item" *ngFor="let item of selectedList.items; index as i"
+            [style.background-color]="item.colour">
           <div class="d-flex">
             <div class="todo-item-checkbox">
               <input type="checkbox" [(ngModel)]="item.done" (change)="updateItem(item)" />

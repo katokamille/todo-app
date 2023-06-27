@@ -165,6 +165,7 @@ export class TodoComponent implements OnInit {
 
         this.selectedItem.priority = item.priority;
         this.selectedItem.note = item.note;
+        this.selectedItem.colour = item.colour;
         this.itemDetailsModalRef.hide();
         this.itemDetailsFormGroup.reset();
       },
