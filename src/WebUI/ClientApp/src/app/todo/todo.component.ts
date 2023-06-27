@@ -32,7 +32,8 @@ export class TodoComponent implements OnInit {
     id: [null],
     listId: [null],
     priority: [''],
-    note: ['']
+    note: [''],
+    colour: [null]
   });
 
 
@@ -147,6 +148,7 @@ export class TodoComponent implements OnInit {
   }
 
   updateItemDetails(): void {
+    alert(this.itemDetailsFormGroup.value.colour);
     const item = new UpdateTodoItemDetailCommand(this.itemDetailsFormGroup.value);
     this.itemsClient.updateItemDetails(this.selectedItem.id, item).subscribe(
       () => {

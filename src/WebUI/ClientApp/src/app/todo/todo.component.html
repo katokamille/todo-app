@@ -127,6 +127,10 @@
         <label for="note">Note</label>
         <textarea id="note" class="form-control" rows="3" formControlName="note"></textarea>
       </div>
+      <div class="form-group">
+        <label for="colour">Colour</label>
+        <input type="color" class="form-control form-control-color" id="colour" value="#ffffff" formControlName="colour">
+      </div>
     </form>
     <div *ngIf="debug">
       <pre>{{ itemDetailsFormGroup.value | json }}</pre>
