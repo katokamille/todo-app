@@ -139,6 +139,7 @@ export class TodoComponent implements OnInit {
   // Items
   showItemDetailsModal(template: TemplateRef<any>, item: TodoItemDto): void {
     this.selectedItem = item;
+    this.selectedItem.colour = this.selectedItem.colour ?? "#ffffff";
     this.itemDetailsFormGroup.patchValue(this.selectedItem);
 
     this.itemDetailsModalRef = this.modalService.show(template);
@@ -148,7 +149,6 @@ export class TodoComponent implements OnInit {
   }
 
   updateItemDetails(): void {
-    alert(this.itemDetailsFormGroup.value.colour);
     const item = new UpdateTodoItemDetailCommand(this.itemDetailsFormGroup.value);
     this.itemsClient.updateItemDetails(this.selectedItem.id, item).subscribe(
       () => {
