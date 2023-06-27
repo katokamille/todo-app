@@ -38,7 +38,8 @@
         </button>
       </div>
       <ul id="todo-items" class="list-group mb-2">
-        <li class="list-group-item" *ngFor="let item of selectedList.items; index as i">
+        <li class="list-group-item" *ngFor="let item of selectedList.items; index as i"
+            [style.background-color]="item.colour">
           <div class="d-flex">
             <div class="todo-item-checkbox">
               <input type="checkbox" [(ngModel)]="item.done" (change)="updateItem(item)" />
@@ -126,6 +127,10 @@
       <div class="form-group">
         <label for="note">Note</label>
         <textarea id="note" class="form-control" rows="3" formControlName="note"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="colour">Colour</label>
+        <input type="color" class="form-control form-control-color" id="colour" value="#ffffff" formControlName="colour">
       </div>
     </form>
     <div *ngIf="debug">
