@@ -1,0 +1,11 @@
+<div class="tag-filter-container">
+  <div class="tags-label-container">
+    <span class="tags-text">Tags </span>
+    <i class="bi bi-tag tags-text-icon"></i>
+  </div>
+  <div class="tag-container" *ngFor="let tag of tags"
+       [class.selected]="isTagSelected(tag)"
+       (click)="onSelectTagFilter(tag)">
+    <span>{{ tag }}</span>
+  </div>
+</div>
