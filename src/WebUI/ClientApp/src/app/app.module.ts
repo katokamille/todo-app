@@ -18,7 +18,8 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TagComponent } from './todo/tag/tag.component';
-
+import { TagFilterComponent } from './todo/tag-filter/tag-filter.component';
+import { TodoItemFilter } from './pipe/todo-item-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { TagComponent } from './todo/tag/tag.component';
     FetchDataComponent,
     TodoComponent,
     TokenComponent,
-    TagComponent
+    TagComponent,
+    TagFilterComponent,
+    TodoItemFilter
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

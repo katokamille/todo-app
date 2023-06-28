@@ -1,0 +1,39 @@
+.tag-container {
+  display: inline-flex;
+  padding: 1px 10px;
+  border-radius: 25px;
+  border: 1px solid #dee2e6;
+  margin-right: 5px;
+  margin-bottom:5px;
+  
+  &:hover {
+    background-color:#000000;
+    color: #ffffff;
+    cursor:pointer;
+  }
+
+  &.selected {
+    background-color:#000000;
+    color: #ffffff;
+    cursor:pointer;
+  }
+
+  span {
+    font-size:0.7rem;
+  }
+}
+
+.tags-label-container {
+  display:inline-flex;
+  
+  .tags-text {
+    margin-right: 5px;
+  }
+  .tags-text-icon {
+    margin-right:5px;
+  }
+}
+
+.tag-filter-container {
+  margin-bottom:10px
+}
