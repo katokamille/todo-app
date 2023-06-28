@@ -12,6 +12,7 @@ export class TagComponent {
   @Input() itemId: number;
   @Input() tags: TagDto[];
   @Output() tagsChange = new EventEmitter<TagDto[]>();
+  @Output() onCloseTagModal = new EventEmitter<void>();
 
   itemTags: TagDto[];
   modalRef: BsModalRef;
@@ -53,6 +54,7 @@ export class TagComponent {
 
   onCloseModal(){
     this.modalRef.hide();
+    this.onCloseTagModal.emit();
   }
 
   onClickRemoveTag(tagId: number) {
