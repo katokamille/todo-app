@@ -26,6 +26,10 @@ public class CreateTagCommandHandler : IRequestHandler<CreateTagCommand, int>
             ItemId = request.ItemId,
             Name = request.Name
         };
+        var item = await _context.TodoItems.FirstOrDefaultAsync(e => e.Id == request.ItemId);
+
+        if (item is null)
+            throw new NotFoundException(nameof(TodoItem), request.ItemId);
 
         var tag = await _context.Tags
             .FirstOrDefaultAsync(e => e.ItemId == entity.ItemId &&
