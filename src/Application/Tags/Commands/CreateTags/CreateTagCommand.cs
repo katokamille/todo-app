@@ -33,7 +33,7 @@ public class CreateTagCommandHandler : IRequestHandler<CreateTagCommand, int>
 
         var tag = await _context.Tags
             .FirstOrDefaultAsync(e => e.ItemId == entity.ItemId &&
-                                      e.Name.Equals(request.Name));
+                                      e.Name.ToLower().Equals(request.Name.ToLower()));
         
         if (tag is not null)
             throw new AlreadyExistsException(request.Name);
