@@ -49,6 +49,43 @@ public class GetTodosTests : BaseTestFixture
 
         result.Lists.Should().HaveCount(1);
         result.Lists.First().Items.Should().HaveCount(7);
+    } 
+
+    [Test]
+    public async Task ShouldReturnAllListsWithItemsExceptDeleted()
+    {
+        string listTitle = "Fruit Shopping";
+        await RunAsDefaultUserAsync();
+
+        await AddAsync(new TodoList
+        {
+            Title = listTitle,
+            Colour = Colour.Blue,
+            Items =
+                    {
+                        new TodoItem { Title = "Apples", Done = true, Deleted = false},
+                        new TodoItem { Title = "Mango", Done = true, Deleted = true}
+                    }
+        });
+
+        await AddAsync(new TodoList
+        {
+            Title = "Grocery Shopping",
+            Colour = Colour.Blue,
+            Items =
+                    {
+                        new TodoItem { Title = "Rice", Done = true }
+                    },
+            Deleted = true
+        });
+
+        var query = new GetTodosQuery();
+
+        var result = await SendAsync(query);
+
+        result.Lists.Should().HaveCount(1);
+        result.Lists.First().Title.Should().Be(listTitle);
+        result.Lists.First().Items.Should().HaveCount(1);
     }
 
     [Test]
