@@ -31,6 +31,7 @@ public class GetTagsQueryHandler : IRequestHandler<GetTagsQuery, List<TagDto>>
     {
         return _context.Tags
             .Where(x => x.ItemId == request.ItemId)
+            .Where(x => !x.Deleted)
             .OrderBy(x => x.Name)
             .ProjectTo<TagDto>(_mapper.ConfigurationProvider)
             .ToListAsync();
