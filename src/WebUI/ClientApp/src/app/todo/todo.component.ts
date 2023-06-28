@@ -35,7 +35,7 @@ export class TodoComponent implements OnInit {
     note: [''],
     colour: [null]
   });
-
+  filterTags: string[] = [];
 
   constructor(
     private listsClient: TodoListsClient,
