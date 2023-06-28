@@ -22,7 +22,9 @@
 }
 
 #todo-items .list-group-item .btn-xs {
-  padding: 0;
+  align-self:start;
+  padding-left:0;
+  padding-right:0;
 }
 
 #todo-items .todo-item-checkbox {
@@ -30,7 +32,7 @@
 }
 
 #todo-items .todo-item-commands {
-  padding-top: 4px;
+  display:flex;
 }
 
 .modal-footer {
@@ -39,4 +41,24 @@
 
 .form-control-color {
   padding:0.2rem;
+}
+
+.tags-container {
+  padding: 0 0.75rem;
+}
+
+.tag-container {
+  display: inline-flex;
+  padding: 1px 10px;
+  border-radius: 25px;
+  border: 1px solid #dee2e6;
+  margin-right: 5px;
+  margin-bottom:5px;
+  span {
+    font-size:0.7rem;
+  }
+}
+
+.flex-display {
+  display:flex;
 }
