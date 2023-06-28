@@ -1,4 +1,4 @@
-import { Component, TemplateRef, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, TemplateRef, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CreateTagCommand, TagDto, TagsClient, TodoListDto } from 'src/app/web-api-client';
 
@@ -8,7 +8,7 @@ import { CreateTagCommand, TagDto, TagsClient, TodoListDto } from 'src/app/web-a
   templateUrl: './tag-filter.component.html',
   styleUrls: ['./tag-filter.component.scss']
 })
-export class TagFilterComponent implements OnInit {
+export class TagFilterComponent implements OnInit, OnChanges {
   @Input() selectedList: TodoListDto;
   tags:string[];
   @Input() selectedTags:string[];
@@ -16,8 +16,15 @@ export class TagFilterComponent implements OnInit {
 
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.populateTags();
+  }
+
   ngOnInit(): void {
-    console.log(this.selectedList.items);
+    this.populateTags();
+  }
+
+  populateTags() {
     let itemTags = this.selectedList.items.map(
       (item) => {
         return item.tags.map(tag => tag.name);
