@@ -27,6 +27,8 @@ public class GetTodosQueryHandler : IRequestHandler<GetTodosQuery, TodosVm>
         var lists = await _context.TodoLists
                 .Include(e => e.Items
                                 .Where(item => !item.Deleted))
+                .ThenInclude(e => e.Tags
+                                    .Where(tag => !tag.Deleted))
                 .Where(e => !e.Deleted)
                 .AsNoTracking()
                 .OrderBy(t => t.Title)
