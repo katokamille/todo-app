@@ -264,4 +264,9 @@ export class TodoComponent implements OnInit {
     this.deleteCountDown = 0;
     this.deleting = false;
   }
+
+  onCloseTagModal() {
+    //to trigger selected list changes
+    this.selectedList = <TodoListDto>{...this.selectedList};
+  }
 }

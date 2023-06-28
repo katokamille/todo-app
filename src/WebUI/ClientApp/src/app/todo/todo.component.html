@@ -66,7 +66,8 @@
               </div>
             </div>
             <div class="todo-item-commands">
-              <app-tag-component class="flex-display" [itemId]="item.id" [(tags)]="item.tags"> </app-tag-component>
+              <app-tag-component class="flex-display" [itemId]="item.id" [(tags)]="item.tags"
+              (onCloseTagModal)="onCloseTagModal()"> </app-tag-component>
               <button *ngIf="item.id != 0" (click)="showItemDetailsModal(itemDetailsModalTemplate, item)"
                 class="btn btn-default btn-xs" role="button">
                 <i class="bi bi-three-dots-vertical"></i>
