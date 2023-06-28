@@ -1,0 +1,28 @@
+.tag-container {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: 1px solid #313638;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  span:first-child {
+    margin-right: 15px;
+  }
+  span.circle {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+    line-height: 22px;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: #ffffff;
+    text-align: center;
+    display: block;
+  }
+}
+
+.tag-list-container {
+    margin-top:15px;
+}
