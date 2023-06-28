@@ -71,6 +71,29 @@
         }
       }
     },
+    "/api/Tags/Summary": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "Tags_Summary",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SummaryTagDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Tags/{id}": {
       "delete": {
         "tags": [
@@ -502,6 +525,19 @@
           },
           "name": {
             "type": "string"
+          }
+        }
+      },
+      "SummaryTagDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },

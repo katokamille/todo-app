@@ -1,0 +1,17 @@
+<h1>Tags</h1>
+
+<div class="search-tag-container">
+  <label for="tag-search" class="form-label">Search Tag</label>
+  <input type="text" class="form-control" placeholder="Search tag" 
+         [(ngModel)]="searchText">
+</div>
+
+<div class="tag-list-container">
+  <div class="tag-container" *ngFor="let tag of tags | summaryTagsFilter: searchText">
+    <span>
+      {{ tag.name }}
+    </span>
+    
+    <span class="circle">{{tag.count}}</span>
+  </div>
+</div>

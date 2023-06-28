@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TagComponent } from './todo/tag/tag.component';
 import { TagFilterComponent } from './todo/tag-filter/tag-filter.component';
 import { TodoItemFilter } from './pipe/todo-item-filter.pipe';
+import { TagsComponent } from './tags/tags.component';
+import { SummaryTagsFilter } from './pipe/tags-summary-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { TodoItemFilter } from './pipe/todo-item-filter.pipe';
     TokenComponent,
     TagComponent,
     TagFilterComponent,
-    TodoItemFilter
+    TodoItemFilter,
+    TagsComponent,
+    SummaryTagsFilter
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

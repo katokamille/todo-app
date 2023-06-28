@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Todo_App.Application.Tags.Commands.CreateTags;
 using Todo_App.Application.Tags.Queries.GetTags;
+using Todo_App.Application.Tags.Queries.SumaryTags;
 
 namespace Todo_App.WebUI.Controllers;
 public class TagsController : ApiControllerBase
@@ -10,6 +11,13 @@ public class TagsController : ApiControllerBase
     {
         return await Mediator.Send(query);
     }
+
+    [HttpGet("Summary")]
+    public async Task<ActionResult<List<SummaryTagDto>>> Summary()
+    {
+        return await Mediator.Send(new SummaryTagsQuery());
+    }
+
 
     [HttpPost]
     public async Task<ActionResult<int>> Create(CreateTagCommand command)
