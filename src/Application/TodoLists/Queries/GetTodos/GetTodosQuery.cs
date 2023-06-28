@@ -31,7 +31,7 @@ public class GetTodosQueryHandler : IRequestHandler<GetTodosQuery, TodosVm>
                                     .Where(tag => !tag.Deleted))
                 .Where(e => !e.Deleted)
                 .AsNoTracking()
-                .OrderBy(t => t.Title)
+                .OrderBy(t => t.Created)
                 .ToListAsync(cancellationToken);
 
         return new TodosVm
